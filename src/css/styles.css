@@ -12,6 +12,7 @@ width: 272px;
 height: 40px;
 margin-left: 156px;
 margin-top: 36px;
+margin-right: 8px;
 border-radius: 4px;
 background-color: #fff;
 font-weight: 400;
@@ -20,10 +21,18 @@ line-height: 150%;
 letter-spacing: 0.04em;
 color: #2e2f42;
 }
+
 button {
-    display: inline-block;
-    border-radius: 8px;
+display: inline-block;
+justify-content: center;
+border-radius: 8px;
 padding: 8px 16px;
 width: 75px;
 height: 40px;
+background-color: #cfcfcf;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: 0.04em;
+color: #989898;
 }
