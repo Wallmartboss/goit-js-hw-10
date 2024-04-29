@@ -23,6 +23,7 @@ margin-right: 8px;
 margin-bottom: 32px;
 border-radius: 4px;
 background-color: #fff;
+font-family: var(--font-family);
 font-weight: 400;
 font-size: 16px;
 line-height: 150%;
@@ -38,13 +39,24 @@ border-radius: 8px;
 padding: 8px 16px;
 width: 75px;
 height: 40px;
-background-color: #cfcfcf;
+background-color: #4e75ff;
+font-family: var(--font-family);
 font-weight: 500;
 font-size: 16px;
 line-height: 150%;
 letter-spacing: 0.04em;
-color: #989898;
+color: #fff;
 border: none;
+cursor: pointer;
+transition: color 250ms linear,  background-color 250ms linear;
+}
+button:hover,
+button:focus {
+    background-color: #6c8cff;
+}
+button:disabled {
+    color: #989898;
+    background-color: #cfcfcf;
 }
 .value {
 font-family: var(--font-family);
@@ -65,6 +77,7 @@ color: #2e2f42;
 text-align: center;
 justify-content: center;
 text-transform: uppercase;
+width: 100%;
 }
 
 .timer {
@@ -79,4 +92,9 @@ text-transform: uppercase;
     justify-content: center;
     flex-wrap: wrap;
     align-items: baseline;
+}
+
+.flatpickr-calendar.animate.arrowTop.arrowLeft.open {
+    background-color: #f5f5f5;
+    margin-top: 8px;
 }
