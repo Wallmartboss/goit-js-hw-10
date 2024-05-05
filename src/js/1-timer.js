@@ -14,13 +14,12 @@ let seconds;
 
 const selectedDate = document.querySelector("#datetime-picker");
 const button = document.querySelector("button[data-start]");
-
 const timerDays = document.querySelector(".value[data-days]");
 const timerHours = document.querySelector(".value[data-hours]");
 const timerMinutes = document.querySelector(".value[data-minutes]");
 const timerSeconds = document.querySelector(".value[data-seconds]");
 
-button.disable = true;
+button.disabled = true;
 
 const options = {
   enableTime: true,
@@ -28,51 +27,54 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
     inputedDate = selectedDates[0].getTime();
-    console.log(inputedDate);
-    if (inputedDate < Date.now()) {
+        if (inputedDate < Date.now()) {
       iziToast.show({
-        title: 'Warning!',
+        title: 'Error!',
         message: 'Please choose a date in the future',
-        position: `topCenter`,
+        position: `topRight`,
+        backgroundColor: 'red',
+        titleColor: `#fff`,
+        messageColor: `#fff`,
     });
-      button.disable = true;
-      // button.style.cursor = "not-allowed"; 
-      // button.style.backgroundColor =  "#cfcfcf";
-      // button.style.color =  "#989898";
-    }  else {
+      button.disabled = true;
+       }  else {
      userSelectedDate = selectedDates[0];
-     button.disable = false;
-    //  button.style.cursor = "pointer";
-    //  button.style.backgroundColor =  "#4e75ff"; 
-    //  button.style.color =  "#fff";
-    }
+     button.disabled = false;
+       }
     },
   };
 
 flatpickr(selectedDate, options);
+
 const startTimer = button.addEventListener("click", onClick);
 
 function onClick ()  {
-  timerTime = inputedDate - Date.now();
-  const setUserTimerId = setInterval(fillingTimers(timerTime), 1000);
-  
-};
+    const setUserTimerId = setInterval(() => {
+    timerTime = inputedDate - Date.now();
+    if (timerTime <= 0) {
+      clearInterval(setUserTimerId);
+      selectedDate.disabled = false;
+      button.disabled = false;
+      return
+    } else {
+      const { days, hours, minutes, seconds } = convertMs(timerTime);
+      fillingTimers({days, hours, minutes, seconds});
+      selectedDate.disabled = true;
+      button.disabled = true;
+    };
+    }, 1000);
+}
 
-function fillingTimers(value) {
-  // for (let i = value; i>0; i-=1000) { 
-  convertMs(value);
+function fillingTimers({days, hours, minutes, seconds}) {
   timerDays.textContent = `${days}`;
   timerHours.textContent = `${hours}`;
   timerMinutes.textContent =`${minutes}`;
   timerSeconds.textContent = `${seconds}`;
-  // value -= 1000;
-  // };
 };
 
 function addLeadingZero(value) {
-    String(value).padStart(2,0);
+   return String(value).padStart(2,0);
  }
 
 function convertMs(ms) {
@@ -84,8 +86,7 @@ function convertMs(ms) {
 
   // Remaining days
    days =  addLeadingZero(Math.floor(ms / day));
-   console.log(days);
-  // Remaining hours
+     // Remaining hours
    hours =  addLeadingZero(Math.floor((ms % day) / hour));
   // Remaining minutes
    minutes =  addLeadingZero(Math.floor(((ms % day) % hour) / minute));

@@ -6,6 +6,11 @@ ul {
     list-style-type: none;
 }
 
+body {
+    padding-left: 156px;
+    padding-top: 36px;
+    box-sizing: border-box;
+}
 .link-home {
     position: absolute;
     top: 20px;
@@ -13,12 +18,11 @@ ul {
 }
 
 #datetime-picker {
+    box-sizing: border-box;
 display: inline-flex;
 width: 272px;
 /* height: 40px; */
 padding: 8px 16px;
-margin-left: 156px;
-margin-top: 36px;
 margin-right: 8px;
 margin-bottom: 32px;
 border-radius: 4px;
@@ -30,34 +34,46 @@ line-height: 150%;
 letter-spacing: 0.04em;
 color: #2e2f42;
 border: 1px solid #808080;
+text-align: center;
 }
-
-button {
+#datetime-picker:hover,
+#datetime-picker:focus {
+    border: 1px solid #000;
+    color: #2e2f42;
+}
+#datetime-picker:active {
+    border: 1px solid #4E75FF;
+    color: #000;
+  }
+#datetime-picker:disabled {
+    cursor: not-allowed;
+    background-color: #fafafa;
+    color: #808080;
+}
+button[data-start] {
 display: inline-flex;
 justify-content: center;
 border-radius: 8px;
 padding: 8px 16px;
 width: 75px;
 height: 40px;
-/* background-color: #4e75ff; */
-background-color: #cfcfcf;
+background-color: #4e75ff;
 font-family: var(--font-family);
 font-weight: 500;
 font-size: 16px;
 line-height: 150%;
 letter-spacing: 0.04em;
-/* color: #fff; */
-color: #989898;
+color: #fff;
 border: none;
-/* cursor: pointer; */
+cursor: pointer;
 transition: color 250ms linear,  background-color 250ms linear;
 }
 
-button:hover,
-button:focus {
+button[data-start]:hover,
+button[data-start]:focus {
     background-color: #6c8cff;
 }
-button:disabled {
+button[data-start]:disabled {
     color: #989898;
     background-color: #cfcfcf;
     cursor: not-allowed;
@@ -86,9 +102,9 @@ width: 100%;
 
 .timer {
     display: flex;
-    margin-left: 156px;
-    gap: 24px;
+     gap: 24px;
     width: 346px;
+    justify-content: space-between;
 }
 .field {
     display: flex;
