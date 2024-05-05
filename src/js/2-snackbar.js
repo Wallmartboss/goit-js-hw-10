@@ -40,3 +40,4 @@ const makePromise = (delay, state) => {
               }, delay);
     });
   };
+  
