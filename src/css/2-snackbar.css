@@ -1,0 +1,113 @@
+:root {
+    --font-family: "Montserrat", sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+body {
+    padding-left: 156px;
+    padding-right: 156px;
+    padding-top: 36px;
+    box-sizing: border-box;
+}
+.link-home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.form {
+    box-sizing: border-box;
+    display: block;
+    width: 360px;
+}
+input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px 16px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+    cursor: pointer;
+}
+.form label input:hover,
+.form label input:focus {
+    border: 0.5px solid #000;
+}
+fieldset {
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    border: 0.5px solid #808080;
+    border-radius: 3.5px;
+    padding: 24px 48px 8px 48px;
+    gap: 48px;
+    margin-bottom: 24px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+}
+fieldset label {
+    display: inline-flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #2e2f42;
+ }
+.form label {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+}
+.form input {
+    margin-bottom: 16px;
+    border: 0.5px solid #808080;
+    border-radius: 3.5px;
+}
+button {
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 360px;
+    height: 40px;
+    background-color: #4e75ff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.04em;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 250ms linear;
+}
+button:hover,
+button:focus {
+    background-color: #6c8cff;  
+}
+input[type="radio"] {
+    margin: 0;
+    border: 1px solid #757575;
+    border-radius: 14px;
+    width: 20px;
+    height: 20px;
+}
+fieldset:hover,
+fieldset:focus {
+    border: 0.5px solid #000;
+}
