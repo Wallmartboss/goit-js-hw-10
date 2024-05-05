@@ -39,17 +39,20 @@ border-radius: 8px;
 padding: 8px 16px;
 width: 75px;
 height: 40px;
-background-color: #4e75ff;
+/* background-color: #4e75ff; */
+background-color: #cfcfcf;
 font-family: var(--font-family);
 font-weight: 500;
 font-size: 16px;
 line-height: 150%;
 letter-spacing: 0.04em;
-color: #fff;
+/* color: #fff; */
+color: #989898;
 border: none;
-cursor: pointer;
+/* cursor: pointer; */
 transition: color 250ms linear,  background-color 250ms linear;
 }
+
 button:hover,
 button:focus {
     background-color: #6c8cff;
@@ -57,6 +60,7 @@ button:focus {
 button:disabled {
     color: #989898;
     background-color: #cfcfcf;
+    cursor: not-allowed;
 }
 .value {
 font-family: var(--font-family);
