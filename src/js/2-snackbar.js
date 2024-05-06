@@ -11,11 +11,19 @@ function onClick(event) {
     const delay = event.target.elements.delay.value;
     const state = event.target.elements.state.value;
     makePromise(delay, state)
-    .then(value => {
-        console.log(value);
+    .then(delay => {
+        iziToast.success({
+            title: 'OK',
+            message: `Fulfilled promise in ${delay}ms`,
+            position: 'topRight',
+            });
     })
-    .catch(error => {
-        console.log(error);
+    .catch(delay => {
+        iziToast.error({
+            title: 'Error',
+            message: `Rejected promise in ${delay}ms`,
+            position: 'topRight',
+           });
     });
     form.reset();
 };
@@ -24,18 +32,9 @@ const makePromise = (delay, state) => {
     return new Promise((resolve, reject) => {
          setTimeout(() => {
                   if(state == "fulfilled") {
-                      resolve(iziToast.success({
-                        title: 'OK',
-                        message: `Fulfilled promise in ${delay}ms`,
-                        position: 'topRight',
-                        }))
+                      resolve(delay, value)
                   } else {
-                      reject(
-                        iziToast.error({
-                        title: 'Error',
-                        message: `Rejected promise in ${delay}ms`,
-                        position: 'topRight',
-                       }))
+                      reject(delay, value)
                   }
               }, delay);
     });
