@@ -32,9 +32,9 @@ const makePromise = (delay, state) => {
     return new Promise((resolve, reject) => {
          setTimeout(() => {
                   if(state == "fulfilled") {
-                      resolve(delay, value)
+                      resolve(delay)
                   } else {
-                      reject(delay, value)
+                      reject(delay)
                   }
               }, delay);
     });
